@@ -1,38 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+  window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
 <meta charset="utf-8">
-<title></title>
+<title>Ryan O'Dowd's Website</title>
 <link href="indexpagecss.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<div id="container">
-<!-- <div id="header"> -->
-<!-- <h1><a href="index.html"><img src="websitebanner.jpg" style="margin-top:-21px" width="990" height="100" alt=""/></a></h1> -->
-<!-- </div> -->
-<div id="top-navigation">
-<ul>
-<li><a href="index.html">Home Page</a></li>
-<li><a href="myhobbies.html">My Hobbies</a></li>
-<li><a href="family.html">My Family</a></li>
-<li><a href="linfieldpictures.html">Linfield in the Fall</a></li>
-<li><a href="funthings.html">Fun Things</a></li>
-<li><a href="myacademicwork.html">My Linfield Academic Work</a></li>
-<li><a href="CV.pdf">My CV</a></li>
-<li><a href="test.html">Testing Page</a></li>
-</ul>
+
+<!-- Top navigation -->
+<div class="topnav">
+
+  <!-- Centered link -->
+  <!-- <div class="topnav-centered">
+    <a href="home" class="active">Home</a>
+  </div> -->
+
+  <!-- Left-aligned links (default) -->
+  <a href="index.html">Home</a>
+
+  <!-- Right-aligned links -->
+  <div class="topnav-right">
+    <a href="aboutme.html">About Me</a>
+    <a href="research.html">Research</a>
+    <a href="CV.pdf">My CV</a>
+  </div>
 </div>
 
-<div id="content">
-  <h1> Howdy folks.</h1>
-  <p>Here's a link to my final project website: <a href="final_project/index.html"><button>FINAL PROJECT</button></a></p>
-  <p> NOTE: THERE ARE NO LINKS FROM THE FINAL PROJECT SITE BACK TO THIS SITE.</p>
-  <p>Also, here is a screen clipping to serve as proof of domain availability for my final project:</p>
-  <img src="Capture.png">
+<div class="content">
+  <h3 id="basics">Basics</h3>
+  <p>Complex numbers <span class="math inline">\(\mathbb{C}\)</span> can
+  be represented in two main ways: 1) <span
+  class="math inline">\(a+bi\)</span> where <span
+  class="math inline">\(a,b\in \mathbb{R}\)</span>, and <span
+  class="math inline">\(i=\sqrt{ -1 }\)</span>. 2) <span
+  class="math inline">\(re^{i\theta}\)</span>, where <span
+  class="math inline">\(r&gt;0\)</span> and <span
+  class="math inline">\(\theta\in \mathbb{R}\)</span>. Note that <span
+  class="math inline">\(0\)</span> does not have a representation in this
+  form. In the second form, one can rewrite <span
+  class="math inline">\(e^{i\theta}=\cos\theta+i\sin\theta\)</span>. This
+  second form allows us to consider also a complex logarithm, for any
+  non-zero <span class="math inline">\(z\in \mathbb{C}\)</span>. We define
+  it as <span class="math display">\[
+  \log(z)=\log(re^{i\theta}):=\ln(r)+i\theta,
+  \]</span> observing that <span
+  class="math inline">\(e^{\log(z)}=z\)</span>. Note that for any <span
+  class="math inline">\(\Theta\in (-\pi,\pi]\)</span>, <span
+  class="math inline">\(e^{i\theta}=e^{i\Theta}\)</span> whenever <span
+  class="math inline">\(\theta=\Theta+2\pi n\)</span> for some <span
+  class="math inline">\(n\in \mathbb{N}\)</span>. This means <span
+  class="math inline">\(\log(z)\)</span> is only a one-way inverse, and it
+  is actually a multi-valued function since the choice of <span
+  class="math inline">\(\theta\)</span> is not unique. As such, one can
+  make it single valued by restricting <span
+  class="math inline">\(\theta\)</span> to <span
+  class="math inline">\((-\pi,\pi]\)</span>, known as the <em>principal
+  branch</em>. Other domains for <span
+  class="math inline">\(\theta\)</span> are possible, creating separate
+  branches.</p>
+  <h3 id="differentiability-and-series-representations">Differentiability
+  and series representations</h3>
+  <p>We say that a function <span class="math inline">\(f:\mathbb{C}\to
+  \mathbb{C}\)</span> is complex differentiable at a point <span
+  class="math inline">\(z_{0}\)</span> if <span class="math display">\[
+  f(z_{0}):=\lim_{ z \to z_{0} } \frac{f(z)-f(z_{0})}{z-z_{0}}
+  \]</span> exists (and is finite). Writing <span
+  class="math inline">\(z=a+bi\)</span> then we note that any such
+  function <span class="math inline">\(f=g(a,b)+h(a,b)i\)</span>, where
+  <span class="math inline">\(g,h\)</span> are real-valued functions. So
+  the differentiability formula can be rewritten as <span
+  class="math display">\[
+  \lim_{ a+bi \to a_{0}+b_{0}i }
+  \frac{(g(a,b)-g(a_{0},b_{0}))-(h(a,b)-h(a_{0},b_{0}))i}{(a-a_{0})-(b-b_{0})i}.
+  \]</span> For a differentiable function, this formula needs to be path
+  independent. Using this fact, one can deduce the <em>Cauchy-Riemann
+  equations:</em> <span class="math display">\[
+  \frac{dg}{da}=\frac{dh}{db},\qquad -\frac{dg}{db}=\frac{dh}{da},
+  \]</span> which are necessarily satisfied by a differentiable function.
+  <strong>2022 PM2</strong> These equations holding true on some
+  neighborhood around <span class="math inline">\(z_{0}\)</span> is also a
+  sufficient condition for differentiability. If a function <span
+  class="math inline">\(f\)</span> is differentiable on some neighborhood
+  of a point <span class="math inline">\(z_{0}\)</span>, it is said to be
+  <em>analytic</em> at that point. Equivalently, functions which are
+  analytic at <span class="math inline">\(z_0\)</span> admit local power
+  series representations: <span class="math display">\[
+  f(z)=\sum_{k=0}^\infty a_{k}(z-z_{0})^k.
+  \]</span> Furthermore, we have the following theorem:  Laurent’s
+  Theorem: — If <span class="math inline">\(f\)</span> is analytic on a
+  domain <span class="math inline">\(R_{1}&lt;|z-z_{0}|&lt;R_{2}\)</span>
+  for <span class="math inline">\(0&lt;R_{1}&lt;R_{2}\in
+  \mathbb{R}\)</span> and <span
+  class="math inline">\(z_0\in\mathbb{C}\)</span>, then for each point in
+  this domain, <span class="math inline">\(f\)</span> can be uniquely
+  representation by <span class="math display">\[
+  f(z)=\sum_{n=-\infty}^\infty c_{n}(z-z_{0})^n,
+  \]</span> where, for any simple positively-oriented closed contour
+  (SPOCC) <span class="math inline">\(\Gamma\)</span>, <span
+  class="math display">\[
+  c_{n}=\frac{1}{2\pi i}\int_{\Gamma}\frac{f(z)}{(z-z_{0})^{n+1}}dz.
+  \]</span> — <strong>2023 PM6</strong>  Integrals and singular
+  points</p>
+  <p>A point <span class="math inline">\(z_0\)</span> is called a(n)
+  (isolated) <em>singular point</em> of a function <span
+  class="math inline">\(f\)</span> if the function is analytic for every
+  point in some neighborhood of <span class="math inline">\(z_0\)</span>,
+  but not analytic on <span class="math inline">\(z_0\)</span>.</p>
+  <h2 id="cauchy-extended-integral-formula">Cauchy (Extended)
+  Integral Formula:</h2>
+  <p>If <span class="math inline">\(f\)</span> is analytic on some set
+  enclosed by a SPOCC <span class="math inline">\(\Gamma\)</span> and
+  <span class="math inline">\(z_{0}\)</span> is in the interior of this
+  set, then <span class="math display">\[
+  f^{(n)}(z_{0})=\frac{n!}{2\pi
+  i}\int_{\Gamma}\frac{f(z)}{(z-z_{0})^{n+1}}dz.
+  \]</span></p>
+  <h2 id="cauchy-residue-theorem"> Cauchy Residue Theorem:</h2>
+  <p>If <span class="math inline">\(f\)</span> is analytic everywhere
+  except finitely many singular points <span
+  class="math inline">\((z_k)_{k=1}^n\)</span> on some set enclosed by a
+  SPOCC <span class="math inline">\(\Gamma\)</span>, then <span
+  class="math display">\[
+  \int_{\Gamma}f(z)dz=2\pi i \sum_{k=1}^n
+  \underset{z=z_{k}}{\operatorname{\mathrm{Res}}}f(z),
+  \]</span> where <span class="math display">\[
+  \underset{z=z_{k}}{\operatorname{Res}}f(z):=c_{-1},
+  \]</span> (the <span class="math inline">\(-1\)</span>-th coefficient of
+  the Laurent series) for an annulus enclosing <span
+  class="math inline">\(z_{k}\)</span> and no other <span
+  class="math inline">\(z_{i}\)</span>.</p>
+  <hr />
+  <p>Parking garage analogy: taking a loop around a single level of a
+  parking garage is like integrating over an analytic function. Maybe you
+  have some up and downs from speed bumps, but you end up back at the same
+  height you started. Taking a loop up a spiral to the next level is like
+  integrating around a singular point. You end up in the same position but
+  on a higher level (or function value, corresponding to the floor).</p>
+  <p>There are three major types of singular points to consider: -
+  <em>Essential</em> singularities, where infinitely many of the
+  coefficients <span class="math inline">\(c_{n}\)</span> are non-zero for
+  <span class="math inline">\(n&lt;0\)</span>, - <em>Removable</em>
+  singularities, where every <span class="math inline">\(c_n=0\)</span>
+  for <span class="math inline">\(n&lt;0\)</span> and the pole can be
+  “filled in” with the right value of <span
+  class="math inline">\(f(z_0)\)</span> in order to make the function
+  analytic at <span class="math inline">\(z_0\)</span>, and -
+  <em>Poles</em> of order <span
+  class="math inline">\(m\in\mathbb{N}\)</span>, where <span
+  class="math inline">\(c_{n}\)</span> may be non-zero only when <span
+  class="math inline">\(n&gt;-m\)</span>.</p>
+  <p>If <span class="math inline">\(f\)</span> has a pole of order <span
+  class="math inline">\(m\)</span> at <span
+  class="math inline">\(z_0\)</span>, then <span class="math display">\[
+  f(z)=\frac{g(z)}{(z-z_{0})^m},
+  \]</span> where <span class="math inline">\(g(z)\)</span> is analytic at
+  <span class="math inline">\(z_{0}\)</span>. The residue is then: <span
+  class="math display">\[
+  \underset{z=z_{0}}{\operatorname{Res}}f(z)=\lim_{ z \to z_{0} }
+  \frac{1}{(m-1)!}\frac{d}{dz}\left(f(z)(z-z_{0})^m\right)=\frac{g^{(m-1)}(z_{0})}{(m-1)!}.
+  \]</span>  Theorem: If <span class="math inline">\(p,q\)</span> are
+  analytic at <span class="math inline">\(z_0\)</span>, <span
+  class="math inline">\(p(z_0),q(z_{0})\)</span> are non-zero, but
+  <span class="math inline">\(q(z_{0})=0\)</span>, then <span
+  class="math inline">\(z_{0}\)</span> is a simple pole of <span
+  class="math inline">\(p(z)/q(z)\)</span> and <span
+  class="math display">\[
+  \underset{z=z_{0}}{\operatorname{Res}
+  }\frac{p(z)}{q(z)}=\frac{p(z_{0})}{q(z_{0})}.
+  \]</span> integrals: <strong>2022 PM9, 2023 PM4</strong></p>
 </div>
-<div id="footer">
-Copyright Info Goes Here
-</div>
+
+
+
+<div class="footer">
+Thank you for visiting come again soon!
 </div>
 
 </body>

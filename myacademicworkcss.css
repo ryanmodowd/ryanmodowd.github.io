@@ -1,0 +1,107 @@
+body {
+    background-image: url("spacescape.png");
+    background-repeat: no-repeat;
+    background-position: top;
+	background-attachment:fixed;
+}
+#container
+{
+font-family:Arial, Helvetica, sans -serif;
+width:1000px;
+margin-left: auto;
+margin-right: auto;
+}
+#header
+{
+height:100px;
+width:990px;
+/*background-color:red;*/
+margin-bottom:10px;
+border:5px solid #626;
+}
+#top-navigation
+{
+float:left;
+width:1000px;
+background: #959;
+}
+#top-navigation ul
+{
+margin:0;
+padding:0;
+}
+#top-navigation ul li
+{
+list-style-type:none;
+display:inline;
+}
+#top-navigation li a
+{
+display:block;
+float:left;
+padding:5px 10px;
+color:#FFF;
+text-decoration:none;
+border-right:1px #FFF
+}
+#top-navigation li a:hover
+{
+background:#747;
+color: #ddd;
+}
+#freshmanyear
+{
+float:left;
+width:450px;
+height:none;
+/*background-color:maroon;*/
+margin-top:10px;
+border-radius:15px;
+margin-bottom:10px;
+border:2px solid #626;
+background-color: #FFF
+}
+#sophomoreyear
+{
+float:right;
+width:450px;
+height:none;
+margin-top:10px;
+margin-left:10px;
+border-radius:15px;
+margin-bottom:10px;
+border:2px solid #626;
+background-color: #FFF
+}
+#junioryear
+{
+float:left;
+width:450px;
+height:none;
+margin-top:10px;
+border-radius:15px;
+margin-bottom:10px;
+border:2px solid #626;
+background-color: #FFF
+}
+#senioryear
+{
+float:right;
+width:450px;
+height:none;
+margin-top:10px;
+margin-left:10px;
+border-radius:15px;
+margin-bottom:10px;
+border:2px solid #626;
+background-color: #FFF
+}
+#footer
+{
+clear:both;
+width:1000px;
+height:0px;
+text-align : center;
+margin-bottom:10px;
+/*border:2px solid black */
+}

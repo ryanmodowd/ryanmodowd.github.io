@@ -56,7 +56,7 @@ clear:left;
 padding:20px;
 border:5px solid #626;
 margin-top: 10px;
-background-color:#FFFFFF
+background:rgba(256,256,256,.5);
 }
 
 #footer

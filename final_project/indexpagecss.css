@@ -1,8 +1,6 @@
 body {
     background-image: url("spacescape.png");
-    background-repeat: no-repeat;
-    background-position: top;
-	background-attachment:fixed
+    background-size: cover;
 }
 #container
 {

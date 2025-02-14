@@ -4,15 +4,80 @@ body {
     background-size: cover;
     background-attachment: fixed;
     margin:0;
+    padding:0;
     font-family:Arial, Helvetica, sans-serif;
 }
 
-.topnav {
+span {
+color:rgb(102, 255, 240);
+}
+
+h1 {
+    color:rgb(255, 129, 129);
+}
+
+h2 {
+    color:rgb(255, 208, 121);
+}
+
+h3{
+    color:rgb(255, 255, 118);
+}
+
+h4{
+    color:rgb(138, 255, 138);
+}
+
+h5{
+    color:rgb(124, 150, 255);
+}
+
+h6{
+    color:rgb(115, 59, 115);
+}
+
+em{
+    color:pink;
+}
+
+strong{
+    color:mediumslateblue;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.webtitle {
+z-index:2;
+float: none;
 position: fixed;
-top: 0;
-width: 100%;
-height: 50 px;
-overflow: clip;
+top: 22.5pt;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 500px;
+text-align: center;
+font-size:25pt;
+color:white;
+}
+
+
+.hamburger-icon {
+    display: none;
+  }
+  
+header {
+z-index: 1;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+text-align: center;
+padding: 0px 0px;
+overflow:clip;
 background-image: url("newbackground.jpg");
 /* background-image: url("spacescape.png"); */
 background-size: cover;
@@ -22,49 +87,89 @@ border-width:1px;
 border-color:white;
 }
 
-.topnav a {
-float: left;
-color: #f2f2f2;
-text-align: center;
-padding: 15px 15px;
+.logo a{
+color:white;
+font-size: 20pt;
+padding: 16px 16px;
 text-decoration: none;
-font-size: 20px;
 }
 
-.topnav a:hover {
-background-color: #ddd;
-color: black;
+.logo a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+.navigation a{
+    color:white;
+font-size: 20pt;
+padding: 16px 16px;
+text-decoration: none;
 }
 
-.topnav a.active {
-background-color: #04AA6D;
-color: white;
+.navigation a:hover{
+    background-color: #ddd;
+    color: black;
 }
 
-.topnav-centered a {
-float: none;
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
+.hamburger-icon{
+border:none;
+background-color:transparent;
 }
 
-.topnav-right {
-float: right;
+.hamburger-icon .fa-bars,
+.hamburger-icon .fa-x{
+color:white;
+font-size:1rem;
+cursor:pointer;
 }
 
-/* Responsive navigation menu (for mobile devices) */
-@media screen and (max-width: 600px) {
-.topnav a, .topnav-right {
-    float: none;
+.hamburger-icon input[type="checkbox"] {
+appearance: none;
+}
+
+.navigation {
+display: flex;
+}
+.navigation a{
+color:white
+}
+
+
+@media screen and (max-width: 1100px) {
+header {
     display: block;
 }
+.navigation {
+    height:0;
+    overflow:hidden;
+    /* flex-direction: column; */
+    align-items: center;
+    transition:all 0.5s ease-in-out;
+}
+.logo {
+    display: flex;
+    justify-content: space-between;
+}
+.hamburger-icon {
+    display: block;
+}
+.fa-x{
+    display:none;
+}
+header:has(.hamburger-icon input[type="checkbox"]:checked) .navigation {
+    margin-top: 1rem;
+    height:100px;
+}
 
-.topnav-centered a {
-    position: relative;
-    top: 0;
-    left: 0;
-    transform: none;
+header:not(.hamburger-icon input[type="checkbox"]:checked) .header {
+    height:63px;
+}
+
+header:has(.hamburger-icon input[type="checkbox"]:checked) .fa-bars {
+    display:none;
+}
+header:has(.hamburger-icon input[type="checkbox"]:checked) .fa-x {
+    display:inline-block;
 }
 }
 
